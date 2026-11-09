@@ -1,0 +1,13 @@
+services:
+  btc-ai-dashboard:
+    build: .
+    container_name: btc-ai-readonly
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      APP_MODE: READ_ONLY
+      DELTA_SYMBOL: BTCUSD
+      DELTA_BASE_URL: https://api.india.delta.exchange
